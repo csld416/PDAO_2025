@@ -1,0 +1,49 @@
+Okay, let's move to the next problem.
+
+Two Shang-Chi masters, Tokugawa and Jashun, said they've beaten every other master in the world.
+However, some said that there are some players with sharper skills.
+This brought them here to challenge Master Junpi and Mahiro. There will be an award if they win, or be a punishment if they lose.
+
+Therefore, they are careful about their play and clench every chance to win.
+
+Now, let's introduce to the rules of Shang-Chi.
+Shang-Chi is a game, represents a battle between two armies with a goal of capturing the enemy's general piece.
+Shang-Chi is placed on a 10x9 board and pieces are placed on the points.
+The upper left point is (0,0) and the lower right point is (9,8).
+
+There are two groups of pieces marked by black or red Chinese characters belonging to the two players separately.
+Each player, in turn, moves one piece from its own point to another point.
+No two pieces can occupy the same point at the same time.
+A piece can be moved to a point occupied by an enemy piece, in which case the enemy piece is captured and removed from the board.
+
+When the general is in danger of captured by the enemy player on the enemy player's next move, the enemy player is said to have delivered a check.
+If the general's player can make no move to prevent the general's capture by next enemy move, the situation is called checkmate.
+
+Each piece's introduction is as follows:
+
+- The generals(G,g), the general can move and capture one point either vertically or horizontally, cannot leave the palace unless the situation is called flying general.
+Flying general means that one general can fly across the board to capture the enemy general if they stand on the same line without any intervening pieces.
+
+- The advisors(S,s), the advisors can move and capture one point diagonally and may not leave the palace, which confines them to five points on the board.
+
+- Elephant(E,e), the elephants move and capture exactly two points diagonally and may not jump over the intervening pieces. The move like a character 田, in reference to the board's squares.
+ however, it is possible to block an elephant with a diagonal adjacent piece known as blocking elephant's eye.
+ When this happens, it cannot move or capture in that direction. The elephant cannot cross the river.
+ 
+- Chariot(R,r), the Chariot can move and capture vertically and horizontally by any distance but may not jump over the intervening pieces like the rook in the chess.
+
+- The cannon(C,c), cannon move like a caroid horizontally and vertically but capture by jumping exactly one piece over to its target.
+
+- Horse(H,h), the horse have eight kinds of jumps to move and capture. However, if there is any pieces lying on point away from the horse horizontally or vertically, it cannot move or capture in that direction, called hobbling horse's leg.
+
+- The soldier(P,p) move and capture the advisors at one point. Once they have crossed the river, they may also move and capture one point horizontally. Soldiers cannot move backwards and therefore cannot retreat. Like after advancing to the last rank of the board, however, a soldier may still move sideways at the enemy edge.
+
+
+Please be noted that only the soldier, horse, cannon and caroid can cross the river. You are given a later game board. Now it's black turns to move. Determine whether it's possible for you, the bottom player, to capture the black general immediately after black player's turn. However, if you already checked, the black player will, without a doubt, capture your general, which indicates you are lost. Please be noted that in Xiangqi, each player is forced to make one move in their turn. Therefore, being stalemated also count as losing.
+
+Input:
+Given a 10x9 array full of characters, where the general, advisor, elephant, caroid, cannon, horse, soldier and empty spaces are represented by G, S, E, R, C, H, P and . (A single dot), respectively.
+
+Upper cases indicate black player, while lower cases indicate red player.
+
+The output is a single line of yes or no, indicating if red player can and will capture the black general immediately after black player make their move without losing.

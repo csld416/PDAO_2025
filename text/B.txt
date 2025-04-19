@@ -1,0 +1,60 @@
+Ok, let's move on to the next problem.
+
+Your uncle, Roger, a humble lumberyard farmer, sells the best part of his forest to earn a living.
+
+However, there is a big problem. He has absolutely no idea how to handle it.
+
+For years, he has been growing trees and selling them blindly, never knowing whether he was cutting down the most valuable part of the forest.
+But this year, during the Lunar New Year, something changed.
+As you were trying to survive the usual storm of noisy relatives asking about your studies, Uncle Roger overheard that you were studying at a prestigious university.
+With his eye full of hope, and possibly tears, he asked you for help, being the good niece and nephew. You agreed.
+Now it's time to use your programming skills to help Uncle Roger maximize his profits. You need to help Uncle Roger keep track of the growth and changes in tree height over time.
+
+The forest consists of n trees planted in a straight line, each with an initial height. 
+Over time, various events such as fertilization or natural disasters will alter the tree's height.
+Uncle Roger sometimes may wonder which part is the most valuable segment of the forest of fixed length, LEN.
+The value of a segment is defined by the following formula:
+
+Value = (max(H_L, H_{L+1}, ..., H_{L+LEN-1}) * P_1) + sum(H_i * P_2), from i=L to i=L+LEN-1, L is in [0, N-LEN)
+
+where:
+N is the number of trees in the forest
+H_i is the height of the ith tree,
+P_1 and P_2 are the given price coefficients.
+
+Your task is to track the changes of the forest and help your uncle.
+
+Input
+line 1 contains two integers, N and Q.
+
+N(1 <= N <= 1e5), denoting the number of trees in the forest
+Q(1 <= Q <= 1e4), denoting the number of operations to be performed.
+
+Line 2 contains N integers H_i, denoting the initial height of the ith tree (0 <= H_i <= 100, i in [0, N)).
+
+Next Q lines each contain operations in one of the following formats:
+
+1. Fertilization:
+1 L R v
+- increase the height of all trees in range [L,R] by V
+- constraits: 0 <= L < N, 1 <= v <= 10
+2. Natural disaster:
+2 L R v
+- Decrease the height of all trees in range [L,R] by v.
+- constraits: 0 <= L <= R < N, 1 <= v <= 10
+3. Query of most valuable segment
+3 LEN P_1 P_2
+- find the best value of length LEN
+- constraits: 1 <= LEN <= N, 1 <=P_1,P_2 <= 1000
+- There will be at most 1e3 query operation
+
+
+Output:
+If there is a query operation, print the segment of length len that has the highest value.
+Print the best segment in a format:
+L R V
+
+where L,R is the starting index and N is the best segment.
+V is the maximum value of the segment.
+
+If multiple segments have the same maximum value, print the one with the smallest starting index. If there is no segment with positive value, print Oiiaioiiai.

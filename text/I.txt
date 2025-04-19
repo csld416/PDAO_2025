@@ -1,0 +1,52 @@
+Okay, let's move on to the next question. 
+
+The prestigious National Museum of Technology operates a high-tech security system based on NxN grids of laser sensors.
+Each sensor has a unique power level used to detect intruders.
+However, the chief security officer noticed that the power levels are unnecessarily high, leading to excessive energy consumption.
+
+To optimize energy efficiency, the power levels must be reconfigured while preserving the system's effectiveness.
+The new configuration must satisfy the following conditions. 
+
+- If a sensor originally had a higher power level than another sensor in the same row or column,
+it must remain more powerful in the new configuration. 
+That is, let P' be the reconfigured security system of the original one P, 
+then for all indices i, j_1, j_2, s.t. j_1 != j_2, and i is in the range from [0 to M), j_1, j_2 is in  [0 to N),
+the following statement holds:
+
+P'_{i, j_1} > P'_{i, j_2} <--> P_{i, j_1} > P_{i, j_2}
+
+Similarly, for all indices, j, i_1, i_2, s.t. i_1 != i_2, i_1, i_2 in [0, M), j in [0, N), we have:
+
+P'_{i_1, j} > P'_{i_2, j} <--> P_{i_1, j} > P_{i_2, j}
+
+- the highest power level int he new configuration must be as low as possible.
+- the minumunm power level un the new configuration must be at least 1.
+
+As the museum security consultant, your task is to determine the optimal power levels for each sensor in the grid while ensuring that the consitions above are met.
+
+Input:
+line 1 contains two integers M and N, denoting the number of rows and columns in the security grid.
+
+The next M lines each contains N integers, denoting the number of sensors in the grid and P denoting the power levels of sensors.
+
+Each power level in the initial configuration is unique. 
+
+constrainghts:
+1 <= M,N <= 1e3
+1 <= P <= 1e5
+P_{i_1, j_1} != P_{i_2, j_2}, where(i1, j1) != (i2, j2)
+M *  N <= 1e5
+
+
+output
+output M lines, each contatining N soace-seperated integers, denoting the reconfigured securoty grid.
+
+sample in:
+
+2 2
+3 1
+2 5
+
+sample out:
+2 1
+1 2

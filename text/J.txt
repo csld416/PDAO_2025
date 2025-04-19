@@ -1,0 +1,38 @@
+Okay, let's move on to the next problem.
+
+In the futuristic Skyport, thousands of aerial drones arrive and depart every second.
+Each drone is equipped with a synchronization chip that ensures it remains in alignment with two different transmission frequencies used by the control tower.
+
+To ensure flight safety, a master synchronization array C must be generated.
+This array serves as an encrypted signal. Each drone would decode this signal using their own decoding window.
+
+Here's how the synchronization system operates:
+- The control tower provides two sequences, A and B, each of length N, denoting the message that type A and type B drones should be able to recover.
+- Type-A drones extract their message by XORing every contiguous subarray of k_1 elements in a circular fashion from the array C.
+- Type-B drones extract their message by XORing every contiguous subarray of k_2 elements also circular from the array C.
+- The mathematical representation of the extraction processes is as follows:
+
+a_i = C_{i%N} ^ C_{(i+1)%N} ^ ..... ^ C_{(i+k_1-1)%N}, i in [0, N)
+b_i = C_{i%N} ^ C_{(i+1)%N} ^ ..... ^ C_{(i+k_2-1)%N}, i in [0, N)
+
+Your job is to generate an array C of N non-negative integers so that:
+XOR every k_1, k_2 line subsequence circular of C equals the value in A, B respectively.
+
+It is promised that there exists at least one valid C extracted to recover both messages.
+
+input:
+
+line 1 contains three integers N, K_1, and K_2.
+line 2 contains N space-seperated integers a_i, the message to be extracted by type-A drones.
+line 3 contains N space-seperated integer b_i, the messge to be extracted by type-B drones.
+1 <= N <= 1e5
+1 <= K_1, K_2 <= N^K_1 != K_2
+0 <= a_i, b_i < 2^30, i in [0, N)
+
+output:
+print N space-seperated integers c_i in [0, 2^30], i in [0, N), denoting the encrypted signal alloweding
+both drones to extract messages by the procedures above.
+
+We ensure that there exists at least one valid c extracted to recover both messages.
+
+If there are multiple valid arrays, print any one of them. For all numbers you output must be in the range of  [0, 2^30), or you will get Wrong Answer.
